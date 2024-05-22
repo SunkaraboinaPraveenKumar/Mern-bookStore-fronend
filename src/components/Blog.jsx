@@ -12,7 +12,7 @@ const Blog = () => {
       imageUrl: 'https://th.bing.com/th/id/OIP.2GMxAqCpItxai1LYbPlmJwHaJJ?rs=1&pid=ImgDetMain',
     },
     {
-      id: 10,
+      id: 12,
       title: '1984',
       author: 'George Orwell',
       genre: 'Science Fiction',
