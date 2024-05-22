@@ -1,7 +1,6 @@
 import { Sidebar } from "flowbite-react";
 import { BiBuoy } from "react-icons/bi";
 import { HiArrowSmLeft, HiArrowSmRight, HiChartPie, HiInbox, HiOutlineCloudUpload, HiShoppingBag, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
-import userImg from '../assets/prav.photo.jpg'
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
 const SideBar = () => {
@@ -9,7 +8,7 @@ const SideBar = () => {
     return (
         <Sidebar aria-label="Sidebar with content separator example">
             <Sidebar.Logo href="/" img={user?.photoURL} imgAlt="user logo" className="w-16 h-12">
-                <p>
+                <p className="text-2xl">
                     {
                         user?.displayName||"Demo User"
                     }
@@ -29,7 +28,7 @@ const SideBar = () => {
                     <Sidebar.Item href="#" icon={HiUser}>
                         <p>Users</p>
                     </Sidebar.Item>
-                    <Sidebar.Item href="#" icon={HiShoppingBag}>
+                    <Sidebar.Item href="/shop" icon={HiShoppingBag}>
                         <p>Products</p>
                     </Sidebar.Item>
                     <Sidebar.Item href="/login" icon={HiArrowSmRight}>

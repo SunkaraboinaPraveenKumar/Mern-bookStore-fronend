@@ -8,7 +8,7 @@ import { AuthContext } from '../context/AuthProvider';
 const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSticky, setIsSticky] = useState(false);
-    const {user}=useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     //toggle menu
     const toggleMenu = () => {
@@ -38,7 +38,7 @@ const NavBar = () => {
     ]
     return (
         <header className='w-full bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300 z-40'>
-            <nav className={`py-4 lg:px-24 px-4 ${isSticky?"sticky top-0 left-0 right-0 bg-blue-300":""}`}>
+            <nav className={`py-4 lg:px-24 px-4 ${isSticky ? "sticky top-0 left-0 right-0 bg-blue-300" : ""}`}>
                 <div className='flex justify-between items-center text-base'>
                     {/* logo */}
                     <Link to="/" className='text-2xl font-bold text-blue-700 flex items-center'><FaBlog className='inline-block' />Books</Link>
@@ -52,7 +52,16 @@ const NavBar = () => {
                     <div className='space-x-12 hidden lg:flex items-center'>
                         <button><FaBars className='w-5 hover:text-blue-700' /></button>
                         {
-                            user&&(user.email)
+                            user && (
+                                <a href="/" className='flex gap-2'>
+                                    <img src={user?.photoURL} alt="user logo" className="w-10 h-10 rounded"/>
+                                    <p className='text-sm'>
+                                        {
+                                            user?.displayName
+                                        }
+                                    </p>
+                                </a>
+                            )
                         }
                     </div>
                     {/* menu btn for the mobile devices */}
@@ -65,7 +74,7 @@ const NavBar = () => {
                     </div>
                 </div>
                 {/* navitems for sm devices */}
-                <div className={`space-y-4 px-4 mt-12 py-7 bg-blue-700 ${isMenuOpen?"block fixed top-0 right-0 left-0":"hidden"}`}>
+                <div className={`space-y-4 px-4 mt-12 py-7 bg-blue-700 ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
                     {
                         navItems.map(({ link, path }) => <Link key={path} to={path} className='block text-base text-white uppercase cursor-pointer'>{link}</Link>)
                     }
