@@ -6,14 +6,14 @@ const ManageBooks = () => {
   const [allBooks, setAllBooks] = useState([]);
 
   useEffect(() => {
-    fetch("https://mern-book-store-backend-1.onrender.com/all-books")
+    fetch("http://localhost:5000/all-books")
       .then(res => res.json())
       .then(data => setAllBooks(data));
   }, []);
 
   // delete a book
   const handleDelete = (id) => {
-    fetch(`https://mern-book-store-backend-1.onrender.com/book/${id}`, {
+    fetch(`http://localhost:5000/book/${id}`, {
       method: "DELETE",
     })
       .then(res => res.json())

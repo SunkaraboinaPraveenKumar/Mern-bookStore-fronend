@@ -53,7 +53,7 @@ const EditBooks = () => {
       bookPDFUrl
     };
 
-    fetch(`https://mern-book-store-backend-1.onrender.com/book/${id}`, {
+    fetch(`http://localhost:5000/book/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
